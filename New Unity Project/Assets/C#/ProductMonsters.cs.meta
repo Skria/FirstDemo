@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9a97d238efb35d94cb0d6886da9c1425
+timeCreated: 1520510830
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Monster1: {fileID: 1443560303232718, guid: ce4bedce690e8064fb8fc85a7d67ad74, type: 2}
+  - Monster2: {fileID: 1745361264496494, guid: 1f589ceef3ac6e54ebbbfd0d2bd79e2f, type: 2}
+  - Monster3: {fileID: 1771573337258918, guid: b144dd5ccd30f5f4280edb054e4d47ec, type: 2}
+  - Monster4: {fileID: 1485133743443510, guid: 02287de649723654eb3888cf8d2659f8, type: 2}
+  - Monster5: {fileID: 1998575212171094, guid: e8b5a94356349704eaa3a3ac2e11f2a7, type: 2}
+  - Monster6: {fileID: 1686502267733608, guid: a464293771e318d4f8856f9b784fcedf, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
