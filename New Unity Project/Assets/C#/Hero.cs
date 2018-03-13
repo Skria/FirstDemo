@@ -3,11 +3,8 @@ using UnityEngine;
 
 public class Hero : Base {
 
-    //用于血条的现实
-    private GameObject HP_imageGameObjectClone;
-    public GameObject HP_imageGameobject;
-    private Transform HP_Parent;
-    Vector3 heroscreen;
+ 
+    
     //用于武器切换
     bool flag1;//武器1
     bool flag2;//武器2
@@ -19,7 +16,7 @@ public class Hero : Base {
     //射击间隔
     float waittime;
     //射击协程
-    private IEnumerator coroutine;
+    private IEnumerator coroutineshoot;
     //用于人物旋转
     Camera camera;
     Vector3 mousevec;
@@ -32,6 +29,17 @@ public class Hero : Base {
     bool back;
     bool left;
     bool right;
+
+    //死亡协程管理
+    private IEnumerator coroutine;
+
+    //用于实现人物的死亡
+    bool deathflag;
+    //死亡协程运行标志
+    private bool cdeathflag;
+
+    //弹窗指示
+    public bool showstart;
     // Use this for initialization
     void Start ()
     {
@@ -47,21 +55,26 @@ public class Hero : Base {
         right = false;
         camera = Camera.main;
         fire = false;
-        coroutine = WaitAndShoot(waittime);
+        coroutineshoot = WaitAndShoot(waittime);
+        coroutine = Herodeath();
         flag1 = true;
         flag2 = true;
         flag3 = true;
-        Showhp();
+        deathflag = false;
+        cdeathflag = false;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Changeequiment();
-        Move();
-        Followmouse();
-        Shoot();
-        HpFollow();
+        if(deathflag == false)
+        {
+            Changeequiment();
+            Move();
+            Followmouse();
+            Shoot();
+        }
+        Death();
 	}
     void FixedUpdate()
     {
@@ -79,7 +92,7 @@ public class Hero : Base {
             else
             {
                 fire = true;
-                StartCoroutine(coroutine);
+                StartCoroutine(coroutineshoot);
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -89,8 +102,8 @@ public class Hero : Base {
 
         if (fire == false)
         {
-            StopCoroutine(coroutine);
-            coroutine = WaitAndShoot(waittime);
+            StopCoroutine(coroutineshoot);
+            coroutineshoot = WaitAndShoot(waittime);
         }
     }
 
@@ -257,24 +270,32 @@ public class Hero : Base {
 
     void Death()
     {
-        if(hp <=0)
+        if (hp <= 0 && deathflag == false )
         {
-            animator.SetBool("death", true);
+            Debug.Log("我死了");
+            deathflag = true;
+        }
+
+        if(deathflag == true && cdeathflag == false)
+        {
+            Debug.Log("我死了");
+            cdeathflag = true;
+            StartCoroutine(coroutine);
+            Debug.Log("运行之后");
         }
     }
 
-    void Showhp()
+    private IEnumerator Herodeath()
     {
-        HP_Parent = GameObject.FindWithTag("HPPosition").transform;
-        heroscreen = camera.WorldToScreenPoint(this.transform.position);
-        HP_imageGameObjectClone = Instantiate(HP_imageGameobject, heroscreen, Quaternion.identity);
-        HP_imageGameObjectClone.transform.SetParent(HP_Parent);
-
+        Debug.Log("运行");
+        Collider collider = this.GetComponent<Collider>();
+        collider.enabled = false;
+        animator.SetBool("death", true);
+        yield return new WaitForSeconds(2);
+        showstart = true;
     }
 
-    void HpFollow()
-    {
-        heroscreen = camera.WorldToScreenPoint(this.transform.position) + new Vector3(0, 50, 0);
-        HP_imageGameObjectClone.transform.position = heroscreen;
-    }
+
+
+
 }

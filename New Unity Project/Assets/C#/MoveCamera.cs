@@ -10,7 +10,7 @@ public class MoveCamera : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Followhero();
+        hero = GameObject.FindGameObjectWithTag("Hero");
     }
 
     // Update is called once per frame

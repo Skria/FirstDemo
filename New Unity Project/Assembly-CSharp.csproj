@@ -48,10 +48,14 @@
   <ItemGroup>
      <Compile Include="Assets\C#\Base.cs" />
      <Compile Include="Assets\C#\Bullet.cs" />
+     <Compile Include="Assets\C#\Contr.cs" />
      <Compile Include="Assets\C#\Hero.cs" />
      <Compile Include="Assets\C#\Monster.cs" />
      <Compile Include="Assets\C#\MoveCamera.cs" />
      <Compile Include="Assets\C#\ProductMonsters.cs" />
+     <Compile Include="Assets\C#\ToExit.cs" />
+     <Compile Include="Assets\C#\ToStart.cs" />
+     <Compile Include="Assets\C#\Tofirst.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
@@ -192,6 +196,8 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\TEST\Add.cs" />
+     <Compile Include="Assets\TEST\Next.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.11.4.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />

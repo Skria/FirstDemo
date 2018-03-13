@@ -14,31 +14,37 @@ public class Monster : Base {
 	//目标角度
 	private Quaternion end;
 	GameObject hero;
-	//伤害
-	public int damage;
+	
 	//碰撞体积（可能不用）
 	public float volume;
 	//旋转速度
 	public float turnspeed;
 	private float lerpt;
 
+    //用于怪物伤害人物
+    private bool isdamage;
+    private int damage;
+    private Hero heroat;
     //属性文件
     public TextAsset text;
 
     //动画管理
     Animator animator;
 
-    //协程管理
+    //死亡协程管理
     private IEnumerator coroutine;
     // Use this for initialization
     void Start () {
         cdeathflag = false;
         hero = GameObject.FindGameObjectWithTag("Hero");
+        heroat = hero.GetComponent < Hero >();
         deathflag = false;
         animator = this.GetComponent<Animator>();
         animator.SetBool("run", true);
         coroutine = Monsterdeath();
         Readatt();
+        isdamage = false;
+        damage = 20;
     }
 	
 	// Update is called once per frame
@@ -159,6 +165,12 @@ public class Monster : Base {
                 deathflag = true;
             }
         }
+
+        if (c.gameObject.layer == 9)
+        {
+            heroat.hp = heroat.hp - damage;
+        }
+
     }
 
     //死亡协程
