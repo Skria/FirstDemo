@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9a97d238efb35d94cb0d6886da9c1425
-timeCreated: 1520510830
+timeCreated: 1521007607
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -11,6 +11,10 @@ MonoImporter:
   - Monster4: {fileID: 1485133743443510, guid: 02287de649723654eb3888cf8d2659f8, type: 2}
   - Monster5: {fileID: 1998575212171094, guid: e8b5a94356349704eaa3a3ac2e11f2a7, type: 2}
   - Monster6: {fileID: 1686502267733608, guid: a464293771e318d4f8856f9b784fcedf, type: 2}
+  - Monsterar1: {fileID: 1188099710567780, guid: 6b84832ac6b69414cbcbb4763c5a9dc8,
+      type: 2}
+  - Monsterar2: {fileID: 1765810002375652, guid: 68821959004d9344ba97053259a4c069,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -53,6 +53,7 @@
      <Compile Include="Assets\C#\Monster.cs" />
      <Compile Include="Assets\C#\MoveCamera.cs" />
      <Compile Include="Assets\C#\ProductMonsters.cs" />
+     <Compile Include="Assets\C#\Prop.cs" />
      <Compile Include="Assets\C#\ToExit.cs" />
      <Compile Include="Assets\C#\ToStart.cs" />
      <Compile Include="Assets\C#\Tofirst.cs" />
@@ -208,7 +209,9 @@
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
+     <None Include="Assets\Monster\Monster9.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
+     <None Include="Assets\Monster\Monster8.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
@@ -216,8 +219,10 @@
      <None Include="Assets\Monster\Monster4.txt" />
      <None Include="Assets\Monster\Monster1.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+     <None Include="Assets\Monster\MoinsterArc2.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
      <None Include="Assets\Monster\Monster6.txt" />
+     <None Include="Assets\Monster\Monster7.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
@@ -230,11 +235,15 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+     <None Include="Assets\Monster\Monster10.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Monster\MoinsterArc1.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\Monster\Monster11.txt" />
+     <None Include="Assets\Monster\Monster12.txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />

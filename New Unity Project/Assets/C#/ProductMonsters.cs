@@ -10,6 +10,8 @@ public class ProductMonsters : MonoBehaviour {
     public GameObject Monster4;
     public GameObject Monster5;
     public GameObject Monster6;
+    public GameObject Monsterar1;
+    public GameObject Monsterar2;
     GameObject hero;
     // Use this for initialization
     void Start () {
@@ -47,4 +49,17 @@ public class ProductMonsters : MonoBehaviour {
     {
         GameObject.Instantiate(Monster6, this.transform.position, this.transform.rotation);
     }
+
+    public void Productmonsterar1()
+    {
+        GameObject.Instantiate(Monster6, this.transform.position, this.transform.rotation);
+    }
+
+    public void Productmonsterar2()
+    {
+        GameObject.Instantiate(Monster6, this.transform.position, this.transform.rotation);
+    }
+
+
+
 }

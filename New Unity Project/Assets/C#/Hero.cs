@@ -3,14 +3,18 @@ using UnityEngine;
 
 public class Hero : Base {
 
- 
-    
+    //无敌标志
+    public bool invincibleflag;
+
     //用于武器切换
     bool flag1;//武器1
     bool flag2;//武器2
     bool flag3;//武器3
     //用于实例化子弹
-    public GameObject bullet;
+    public GameObject bullet1;
+    public GameObject bullet2;
+    public GameObject bullet3;
+    public GameObject bullet4;
     //用于射击
     bool fire;
     //射击间隔
@@ -62,6 +66,7 @@ public class Hero : Base {
         flag3 = true;
         deathflag = false;
         cdeathflag = false;
+        invincibleflag = false;
     }
 	
 	// Update is called once per frame
@@ -246,12 +251,12 @@ public class Hero : Base {
             }
             else if (equipment == 1)
             {
-                GameObject.Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), this.transform.rotation);
+                GameObject.Instantiate(bullet1, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), this.transform.rotation);
                 yield return new WaitForSeconds(waitTime);
             }
             else if (equipment == 2)
             {
-                GameObject.Instantiate(bullet, this.transform.position, this.transform.rotation);
+                GameObject.Instantiate(bullet2, this.transform.position, this.transform.rotation);
                 yield return new WaitForSeconds(0.1f);
             }
             else if (equipment == 3)
@@ -260,9 +265,9 @@ public class Hero : Base {
                 Quaternion temp2 = this.transform.rotation;
                 temp1.eulerAngles = new Vector3(0, this.transform.rotation.eulerAngles.y + 30, 0);
                 temp2.eulerAngles = new Vector3(0, this.transform.rotation.eulerAngles.y - 30, 0);
-                GameObject.Instantiate(bullet, this.transform.position, this.transform.rotation);
-                GameObject.Instantiate(bullet, this.transform.position, temp1);
-                GameObject.Instantiate(bullet, this.transform.position, temp2);
+                GameObject.Instantiate(bullet3, this.transform.position, this.transform.rotation);
+                GameObject.Instantiate(bullet3, this.transform.position, temp1);
+                GameObject.Instantiate(bullet3, this.transform.position, temp2);
                 yield return new WaitForSeconds(waitTime);
             }
         }
@@ -294,6 +299,8 @@ public class Hero : Base {
         yield return new WaitForSeconds(2);
         showstart = true;
     }
+
+   
 
 
 

@@ -17,11 +17,12 @@ public class Next : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
     public void GoNextScene(GameObject NScene)
     {
         Application.LoadLevel("Scene1");//切换到场景Scene_2  
     }
+
+    
 }

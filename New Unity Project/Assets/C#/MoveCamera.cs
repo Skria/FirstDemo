@@ -22,6 +22,24 @@ public class MoveCamera : MonoBehaviour
     void Followhero()
     {
         relativeposition = new Vector3(100, 2000, -500);
-        this.transform.position = hero.transform.position + relativeposition;
+        Vector3 temp = hero.transform.position;
+        if(temp.x > 2300)
+        {
+            temp.x = 2300;
+        }
+        if(temp.x < -2000)
+        {
+            temp.x = -2000;
+        }
+        if (temp.z > 2200)
+        {
+            temp.z = 2200;
+        }
+        if (temp.z < -2800)
+        {
+            temp.z = -2800;
+        }
+
+        this.transform.position =temp + relativeposition;
     }
 }
