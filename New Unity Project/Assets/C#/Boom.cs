@@ -7,13 +7,18 @@ public class Boom : MonoBehaviour {
     Renderer m_ObjectRenderer;
     // Use this for initialization
     void Start () {
-        Disappear();
+        //Disappear();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    void OnTriggerEnter(Collider c)
+    {
+        GameObject.Destroy(this.gameObject);
+    }
 
     private void Disappear()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
+    public GameObject boomrange;
     public GameObject seeboom;
     public int kind;
     public int damage;
@@ -54,7 +55,7 @@ public class Bullet : MonoBehaviour {
             {
                 Showboom();
                 //胶囊体碰撞实现爆炸效果
-
+                GameObject.Instantiate(boomrange, gameObject.transform.position, gameObject.transform.rotation);
                 GameObject.Destroy(this.gameObject);
             }
         }

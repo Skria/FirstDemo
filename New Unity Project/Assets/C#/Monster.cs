@@ -445,6 +445,16 @@ public class Monster : Base
                 }
             }
         }
+        //跟炸弹层碰撞
+         if (c.gameObject.layer == 14)
+        {
+                hp -= 15;
+            Debug.Log("我与炸弹碰撞" + hp);
+                if (hp <= 0)
+                {
+                    deathflag = true;
+                }
+        }
 
         if (c.gameObject.layer == 9)
         {
