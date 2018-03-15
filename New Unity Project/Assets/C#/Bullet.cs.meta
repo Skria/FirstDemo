@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: dc8afa36654116f4d87a855f76cf6808
-timeCreated: 1520474363
+timeCreated: 1521100548
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - seeboom: {fileID: 1974471799639586, guid: 6eb399b5165e7d242a690937ae3d537a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

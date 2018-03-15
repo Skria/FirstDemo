@@ -140,6 +140,8 @@
      <None Include="Assets\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\RFX_Scripts\HowtoPlay.txt" />
+     <None Include="Assets\RFX_Resources\RFX1\Prefabs\Fx\V2\V2_Change.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
      <None Include="Assets\Monster\Monster9.txt" />
@@ -187,6 +189,9 @@
      <None Include="Assets\Monster\Monster2.txt" />
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\NGUI\Examples\Resources\Localization.txt" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>D:/Workplace/New Unity Project/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>D:/Unity5.6.5/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

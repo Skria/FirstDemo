@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
+    public GameObject seeboom;
     public int kind;
     public int damage;
     public float speed;
@@ -44,8 +45,16 @@ public class Bullet : MonoBehaviour {
             {
                 ;
             }
-            else
+            else if(kind ==1)
             {
+                GameObject.Destroy(this.gameObject);
+            }
+            //爆炸子弹 
+            else if(kind == 3)
+            {
+                Showboom();
+                //胶囊体碰撞实现爆炸效果
+
                 GameObject.Destroy(this.gameObject);
             }
         }
@@ -72,5 +81,10 @@ public class Bullet : MonoBehaviour {
                 GameObject.Destroy(this.gameObject);
             }
         }
+    }
+
+    private void Showboom()
+    {
+        GameObject.Instantiate(seeboom, gameObject.transform.position,gameObject.transform.rotation);
     }
 }

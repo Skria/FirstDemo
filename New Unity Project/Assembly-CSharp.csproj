@@ -46,12 +46,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\C#\Add.cs" />
      <Compile Include="Assets\C#\Base.cs" />
+     <Compile Include="Assets\C#\Boom.cs" />
      <Compile Include="Assets\C#\Bullet.cs" />
      <Compile Include="Assets\C#\Contr.cs" />
      <Compile Include="Assets\C#\Hero.cs" />
      <Compile Include="Assets\C#\Monster.cs" />
+     <Compile Include="Assets\C#\Monsterhome.cs" />
      <Compile Include="Assets\C#\MoveCamera.cs" />
+     <Compile Include="Assets\C#\Next.cs" />
      <Compile Include="Assets\C#\ProductMonsters.cs" />
      <Compile Include="Assets\C#\Prop.cs" />
      <Compile Include="Assets\C#\ToExit.cs" />
@@ -197,8 +201,8 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
-     <Compile Include="Assets\TEST\Add.cs" />
-     <Compile Include="Assets\TEST\Next.cs" />
+     <Compile Include="Assets\RFX_Scripts\Destroy.cs" />
+     <Compile Include="Assets\RFX_Scripts\ParticleScaler.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.11.4.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
@@ -207,6 +211,8 @@
      <None Include="Assets\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\RFX_Scripts\HowtoPlay.txt" />
+     <None Include="Assets\RFX_Resources\RFX1\Prefabs\Fx\V2\V2_Change.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
      <None Include="Assets\Monster\Monster9.txt" />

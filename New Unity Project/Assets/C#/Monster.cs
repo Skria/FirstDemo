@@ -323,7 +323,7 @@ public class Monster : Base
     public void Stopandrun()
     {
         count5 = count5 % 300;
-        if(count5 < 150)
+        if(count5 < 200)
         {
             animator.SetBool("run", true);
             Turntoaim();
@@ -436,7 +436,7 @@ public class Monster : Base
         if (c.gameObject.layer == 10)
         {
             Bullet bullet = c.GetComponent<Bullet>();
-            if (bullet.kind == 1)
+            if (bullet.kind == 1 || bullet.kind == 2)
             {
                 hp -= bullet.Getdamage();
                 if (hp <= 0)
@@ -492,28 +492,22 @@ public class Monster : Base
     private IEnumerator Productprop()
     {
         int kind = Random.Range(0, 200);
-        Debug.Log(kind);
         kind = kind / 10;
         switch (kind)
         {
             case 1:
-                Debug.Log("生产加血包");
                 GameObject.Instantiate(prophp, gameObject.transform.position, this.transform.rotation);
                 break;
             case 2:
-                Debug.Log("生产鞋子包");
                 GameObject.Instantiate(propshoes, gameObject.transform.position, this.transform.rotation);
                 break;
             case 3:
-                Debug.Log("生产散射子弹");
                 GameObject.Instantiate(propallmove, gameObject.transform.position, this.transform.rotation);
                 break;
             case 4:
-                Debug.Log("生产螺旋子弹");
                 GameObject.Instantiate(propturn, gameObject.transform.position, this.transform.rotation);
                 break;
             case 5:
-                Debug.Log("生产无敌");
                 GameObject.Instantiate(propin, gameObject.transform.position, this.transform.rotation);
                 break;
             default :

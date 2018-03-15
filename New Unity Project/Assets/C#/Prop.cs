@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Prop : MonoBehaviour {
+    public GameObject seefx;
     public GameObject hero;
     public Hero heroat;
     public int kind;
@@ -33,8 +34,8 @@ public class Prop : MonoBehaviour {
            switch(kind)
             { 
                 case 1:
-                    Debug.Log("我是加血包");
-                    if(heroat.hp +20>= heroat.maxhp)
+                    Showfx();
+                    if (heroat.hp +20>= heroat.maxhp)
                     {
                         heroat.hp = heroat.maxhp;
                     }
@@ -45,7 +46,6 @@ public class Prop : MonoBehaviour {
                     GameObject.Destroy(this.gameObject);
                     break;
                 case 2:
-                    Debug.Log("我鞋子包");
                     if (heroat.movespeed >= 7)
                     {
                         ;
@@ -57,7 +57,6 @@ public class Prop : MonoBehaviour {
                     GameObject.Destroy(this.gameObject);
                     break;
                 case 3:
-                    Debug.Log("我是散射子弹");
                     Quaternion temp = new Quaternion();
                     for(int i =0 ; i<18; i++)
                     {
@@ -68,12 +67,10 @@ public class Prop : MonoBehaviour {
                     GameObject.Destroy(this.gameObject);
                     break;
                 case 4:
-                    Debug.Log("我是螺旋子弹");
                     Disappear();
                     StartCoroutine(coroutineturnshoot);
                     break;
                 case 5:
-                    Debug.Log("我是无敌");
                     Disappear();
                     StartCoroutine(coroutineinvincible);
                     break;
@@ -106,7 +103,7 @@ public class Prop : MonoBehaviour {
 
     private IEnumerator Invinciblehero()
     {
-        heroat.invincibleflag = true;
+        Showfx();
         yield return new WaitForSeconds(5);
         heroat.invincibleflag = false;
         GameObject.Destroy(this.gameObject);
@@ -118,6 +115,15 @@ public class Prop : MonoBehaviour {
         m_ObjectRenderer.enabled = false;
     }
 
+
+    private void Showfx()
+    {
+        GameObject tempsee;
+        ParticleScaler tempsc;
+        heroat.invincibleflag = true;
+        tempsee = GameObject.Instantiate(seefx, hero.transform.position, hero.transform.rotation);
+        tempsee.transform.parent = hero.transform;
+    }
 
 
 }

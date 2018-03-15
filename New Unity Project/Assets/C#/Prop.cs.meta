@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 9a4f7edbb1bb9b7478581f955d2c02cf
-timeCreated: 1520941086
+timeCreated: 1521098184
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
+  - seeinvincible: {fileID: 1486191743703872, guid: 555439c098288c941b8548588a8dd0f1,
+      type: 2}
   - hero: {instanceID: 0}
   - heroat: {instanceID: 0}
   - fastbullet: {fileID: 114004073511396398, guid: 1cb53233fc7905a4180e937bba31737b,
