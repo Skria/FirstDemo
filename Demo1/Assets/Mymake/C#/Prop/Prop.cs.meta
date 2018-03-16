@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1c01bff385cfcca43b9fecbbe16c7bae
+timeCreated: 1521183137
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - seefx: {instanceID: 0}
+  - hero: {instanceID: 0}
+  - heroat: {instanceID: 0}
+  - fastbullet: {fileID: 1390834911004910, guid: 8d9a388b803dc1b44a748e49a174d6b8,
+      type: 2}
+  - slowbullet: {fileID: 1312245322454492, guid: 4b859610c09bb0645b814803c42c6d8b,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
