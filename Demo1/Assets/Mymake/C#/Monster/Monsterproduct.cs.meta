@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 6204ff7896a9c0247be63f553f49a71e
+timeCreated: 1521598709
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Tank: {fileID: 1551366288052410, guid: 9b763bef4e8006b458002439ffe6b855, type: 2}
+  - managerobject: {instanceID: 0}
+  - manager: {instanceID: 0}
+  - Monster0: {fileID: 1174489787222594, guid: 66ce4aa206da9404dae977c3fe926d31, type: 2}
+  - Monster1: {fileID: 1321447045423948, guid: 07bb32f7a2d4d5748a9e30c60e8050f4, type: 2}
+  - Monster2: {fileID: 1986104667020352, guid: b03aeebe61351024aac5791ebada7816, type: 2}
+  - Monster3: {fileID: 1107625806009240, guid: c5b1c38ebeec8d346aca404c7a1b716e, type: 2}
+  - Monster4: {fileID: 1080752049798730, guid: d90a6c8ee50bbf44bbe909d380acde41, type: 2}
+  - Monster5: {fileID: 1746573000762522, guid: 6357031b7ccf8b445b3abbb694bd79ad, type: 2}
+  - Monsterar0: {fileID: 1901678400247296, guid: 9df0ee49ee3581641a9b67448d02d592,
+      type: 2}
+  - home0: {fileID: 1455528752303592, guid: 4a090a135f21e604a93a151c988a85df, type: 2}
+  - home1: {fileID: 1717272269024216, guid: 47cb3f16eb7ab9b499efdb666dd0ee5d, type: 2}
+  - home2: {fileID: 1038126439002000, guid: d0e6bb0fa09626545add9141942507fa, type: 2}
+  - home3: {fileID: 1279220511130340, guid: 273be99e545895045a5dbdf9305f1713, type: 2}
+  - home4: {fileID: 1716204949072498, guid: e6dc79e7330a426458835d5d48138805, type: 2}
+  - home5: {fileID: 1764663213876964, guid: 1a6dada465cc4e14fbed1f3268a27445, type: 2}
+  - homear0: {fileID: 1518918565070132, guid: 7b2b7931291627f42b23603377b823b8, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

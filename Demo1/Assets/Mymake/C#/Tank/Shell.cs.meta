@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 2e6e89daeaf804b46b535f62cfa85478
+timeCreated: 1521464897
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - seeboom: {fileID: 100018, guid: 234c57a2a9797bc44b5a88247a7d51f4, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

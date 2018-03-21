@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Heromove : MonoBehaviour {
+
+    public GameObject managerobject;
+    public Manager manager;
     Hero hero;
     //动画管理
     Animator animator;
@@ -13,6 +16,8 @@ public class Heromove : MonoBehaviour {
     bool right;
     // Use this for initialization
     void Start () {
+        managerobject = GameObject.FindGameObjectWithTag("Manager");
+        manager = managerobject.GetComponent<Manager>();
         hero = gameObject.GetComponent<Hero>();
         animator = gameObject.GetComponent<Animator>();
         forward = false;
@@ -24,8 +29,12 @@ public class Heromove : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(hero.deathflag == false && manager.parse == false)
+        {
+            Move();
+        }
     }
+
 
     private void Move()
     {

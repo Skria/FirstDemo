@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Heroturn : MonoBehaviour {
-
+    public GameObject managerobject;
+    public Manager manager;
+    Hero hero;
     Camera camera;
     Vector3 mousevec;
     // Use this for initialization
     void Start () {
+        managerobject = GameObject.FindGameObjectWithTag("Manager");
+        manager = managerobject.GetComponent<Manager>();
         camera = Camera.main;
+        hero = gameObject.GetComponent<Hero>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Followmouse();
+        if (hero.deathflag == false && manager.parse == false)
+        {
+            Followmouse();
+        }
 	}
 
     void Followmouse()

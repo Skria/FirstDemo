@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 5ee40aa089fe1db4da09007d640d8898
-timeCreated: 1521170317
+timeCreated: 1521429634
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hitblood: {fileID: 1083881665807324, guid: 59f33ceeb8b988e4eb8c9bb8fbad8a89, type: 2}
+  - boomrange: {instanceID: 0}
+  - seeboom: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

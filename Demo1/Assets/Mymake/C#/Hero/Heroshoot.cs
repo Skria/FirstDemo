@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Heroshoot : MonoBehaviour {
-
+    public GameObject managerobject;
+    public Manager manager;
     //用于武器切换
     bool flag1;//武器1
     bool flag2;//武器2
@@ -33,6 +34,9 @@ public class Heroshoot : MonoBehaviour {
     Hero hero;
 
     void Start () {
+
+        managerobject = GameObject.FindGameObjectWithTag("Manager");
+        manager = managerobject.GetComponent<Manager>();
         bulletcount = 10;
         hero = this.GetComponent < Hero>() ;
         
@@ -51,10 +55,13 @@ public class Heroshoot : MonoBehaviour {
     }
 	
 	void Update () {
-        equipment = hero.equipment;
-        Shoot();
-        Handreloding();
-        Changeequiment();
+        if (hero.deathflag == false && manager.parse == false)
+        {
+            equipment = hero.equipment;
+            Shoot();
+            Handreloding();
+            Changeequiment();
+        }
     }
 
     void Shoot()
@@ -127,7 +134,6 @@ public class Heroshoot : MonoBehaviour {
             }
             if (bulletcount == -1 && reloading == false)
             {
-                Debug.Log("自动换子弹");
                 StartCoroutine(coroutinereloading);
             }
             if (reloadingfinish == true)
@@ -146,27 +152,27 @@ public class Heroshoot : MonoBehaviour {
         if (equipment == 1)
         {
             yield return new WaitForSeconds(1);
-            bulletcount = 10;
+            bulletcount = 20;
         }
         else if (equipment == 2)
         {
             yield return new WaitForSeconds(2);
-            bulletcount = 30;
+            bulletcount = 60;
         }
         else if (equipment == 3)
         {
             yield return new WaitForSeconds(2.0f);
-            bulletcount = 5;
+            bulletcount = 20;
         }
         else if (equipment == 4)
         {
             yield return new WaitForSeconds(2.0f);
-            bulletcount = 3;
+            bulletcount = 10;
         }
         else if (equipment == 5)
         {
             yield return new WaitForSeconds(2.0f);
-            bulletcount = 3;
+            bulletcount = 6;
         }
         reloadingfinish = true;
         reloading = false;
@@ -192,17 +198,16 @@ public class Heroshoot : MonoBehaviour {
         {
             if (equipment != 1 && flag1 == true)
             {
-                bulletcount = 10;
+                bulletcount = 20;
                 hero.equipment = 1;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log("xxxx我换了装备");
             if (equipment != 2 && flag2 == true)
             {
-                bulletcount = 30;
+                bulletcount = 60;
                 hero.equipment = 2;
             }
         }
@@ -211,7 +216,7 @@ public class Heroshoot : MonoBehaviour {
         {
             if (equipment != 3 && flag3 == true)
             {
-                bulletcount = 5;
+                bulletcount = 20;
                 hero.equipment = 3;
             }
         }
@@ -220,7 +225,7 @@ public class Heroshoot : MonoBehaviour {
         {
             if (equipment != 4 && flag4 == true)
             {
-                bulletcount = 3;
+                bulletcount = 10;
                 hero.equipment = 4;
             }
         }
@@ -229,7 +234,7 @@ public class Heroshoot : MonoBehaviour {
         {
             if (equipment != 5 && flag5 == true)
             {
-                bulletcount = 3;
+                bulletcount = 6;
                 hero.equipment = 5;
             }
         }

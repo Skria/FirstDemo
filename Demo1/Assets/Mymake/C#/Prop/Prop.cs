@@ -69,7 +69,6 @@ public class Prop : MonoBehaviour
                         temp.eulerAngles = new Vector3(0, i * 20, 0);
                         GameObject.Instantiate(slowbullet, this.transform.position, temp);
                     }
-                    this.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 1);
                     GameObject.Destroy(this.gameObject);
                     break;
                 case 4:
@@ -111,6 +110,7 @@ public class Prop : MonoBehaviour
 
     private IEnumerator Invinciblehero()
     {
+        heroat.invincibleflag = true;
         Showfx();
         yield return new WaitForSeconds(5);
         heroat.invincibleflag = false;
@@ -127,8 +127,6 @@ public class Prop : MonoBehaviour
     private void Showfx()
     {
         GameObject tempsee;
-        ParticleScaler tempsc;
-        heroat.invincibleflag = true;
         tempsee = GameObject.Instantiate(seefx, hero.transform.position, hero.transform.rotation);
         tempsee.transform.parent = hero.transform;
     }

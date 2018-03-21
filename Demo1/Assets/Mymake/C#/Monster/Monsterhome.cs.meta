@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: c1a687bc5355d9d478f5d3e9cd8595bb
+timeCreated: 1521446359
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - text: {instanceID: 0}
+  - hero: {instanceID: 0}
+  - heroat: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - propin: {fileID: 1264999994674736, guid: 6e5507fe521d3c54d8386220c5fd9fb1, type: 2}
+  - propshoes: {fileID: 1997518792346796, guid: f877d2297e6f0bd40aef079bf47ac0c4,
+      type: 2}
+  - prophp: {fileID: 1054630535177398, guid: 7d63593207c9abd48b56d394a383941e, type: 2}
+  - propallmove: {fileID: 1065529278431376, guid: 3f96f2ff554674c43b9ecc0690fee6bf,
+      type: 2}
+  - propturn: {fileID: 1945455531911510, guid: e6f9af944e4026b46b67e9840fb5e96b, type: 2}
+  - monster: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

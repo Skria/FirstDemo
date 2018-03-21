@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Monsterbase : Base {
+    public GameObject managerobject;
+    public Manager manager;
     public TextAsset text;
     public GameObject hero;
     //死亡协程运行标志
@@ -19,6 +21,12 @@ public class Monsterbase : Base {
     public int damage;
     public Hero heroat;
 
+    //开始旋转时候的角度
+    public Quaternion start;
+    //目标角度
+    public Quaternion end;
+
+
     //动画管理
     public Animator animator;
 
@@ -33,7 +41,10 @@ public class Monsterbase : Base {
     public GameObject propturn;
     public IEnumerator coroutineproduct;
     // Use this for initialization
-    void Start () {
+    public void Start () {
+        managerobject = GameObject.FindGameObjectWithTag("Manager");
+        manager = managerobject.GetComponent<Manager>();
+        manager.count = manager.count + 1;
         cdeathflag = false;
         hero = GameObject.FindGameObjectWithTag("Hero");
         heroat = hero.GetComponent<Hero>();
@@ -47,17 +58,13 @@ public class Monsterbase : Base {
 
     }
 
-    // Update is called once per frame
-    public void Update () {
-       
 
-    }
     public void FixedUpdate()
     {
         this.GetComponent<Rigidbody>().velocity = Vector3.zero; ;
     }
 
-    void OnTriggerEnter(Collider c)
+    public void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.layer == 10)
         {
@@ -75,7 +82,6 @@ public class Monsterbase : Base {
         if (c.gameObject.layer == 12)
         {
             hp -= 15;
-            Debug.Log("我与炸弹碰撞" + hp);
             if (hp <= 0)
             {
                 deathflag = true;
@@ -94,12 +100,9 @@ public class Monsterbase : Base {
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
-
         Collider c = collision.collider;
-        Debug.Log("我与英雄相撞");
-
         if (c.gameObject.layer == 9)
         {
             bool invincibleflag = heroat.invincibleflag;
@@ -114,10 +117,11 @@ public class Monsterbase : Base {
     //死亡协程
     public IEnumerator Monsterdeath()
     {
+        manager.count--;
         Collider collider = this.GetComponent<Collider>();
         collider.enabled = false;
         animator.SetBool("death", true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.0f);
         StartCoroutine(coroutineproduct);
         GameObject.Destroy(this.gameObject);
     }
@@ -126,11 +130,8 @@ public class Monsterbase : Base {
     public void Readatt()
     {
         string path = "Monster" + read;
-        Debug.Log(path);
         text = (TextAsset)Resources.Load(path);
         string str = text.text;
-       
-        Debug.Log(str);
         string[] str1 = str.Split(',');
         movespeed = float.Parse(str1[0]);
         turnspeed = float.Parse(str1[1]);
@@ -141,29 +142,53 @@ public class Monsterbase : Base {
     //生产道具协程
     public IEnumerator Productprop()
     {
+        Vector3 temp = gameObject.transform.position;
+        temp.y = 0.5f;
         int kind = Random.Range(0, 200);
         kind = kind / 10;
         switch (kind)
         {
             case 1:
-                GameObject.Instantiate(prophp, gameObject.transform.position, this.transform.rotation);
+                GameObject.Instantiate(prophp, temp, this.transform.rotation);
                 break;
             case 2:
-                GameObject.Instantiate(propshoes, gameObject.transform.position, this.transform.rotation);
+                GameObject.Instantiate(propshoes, temp, this.transform.rotation);
                 break;
             case 3:
-                GameObject.Instantiate(propallmove, gameObject.transform.position, this.transform.rotation);
+                GameObject.Instantiate(propallmove, temp, this.transform.rotation);
                 break;
             case 4:
-                GameObject.Instantiate(propturn, gameObject.transform.position, this.transform.rotation);
+                GameObject.Instantiate(propturn, temp, this.transform.rotation);
                 break;
             case 5:
-                GameObject.Instantiate(propin, gameObject.transform.position, this.transform.rotation);
+                GameObject.Instantiate(propin, temp, this.transform.rotation);
                 break;
             default:
                 break;
         }
         yield return new WaitForSeconds(1);
+    }
+
+
+    //旋转物体到目标角度 策略0
+    public void Turntoaim()
+    {
+        start = this.transform.rotation;
+        this.transform.LookAt(hero.transform);
+        end = this.transform.rotation;
+        this.transform.rotation = start;
+        //计算需要旋转的角度
+        float needturn = Quaternion.Angle(start, end);
+        float lerp_speed = turnspeed / needturn;
+        float lerp_tm = lerp_speed * Time.deltaTime;
+        this.transform.rotation = Quaternion.Lerp(start, end, lerp_tm);
+
+    }
+
+    //向前走
+    public void Moveforward()
+    {
+        this.transform.Translate(0, 0, movespeed);
     }
 
 }
