@@ -17,6 +17,8 @@ public class Mainmenu : MonoBehaviour {
     GameObject lv5;
     GameObject back;
 
+    GameObject helpmenu;
+
     private IEnumerator coroutinebackstart;
     private IEnumerator coroutinebackhelp;
     private IEnumerator coroutinebackexit;
@@ -42,10 +44,15 @@ public class Mainmenu : MonoBehaviour {
     private IEnumerator coroutinegolv5;
     private IEnumerator coroutinegoback;
     private IEnumerator coroutinegochoose;
+
+    private IEnumerator coroutinebackhelpmenu;
+    private IEnumerator coroutinegohelpmenu;
     // Use this for initialization
     void Start () {
         countgame = GameObject.FindGameObjectWithTag("Count");
         count = countgame.GetComponent<Maincount>();
+
+        helpmenu = GameObject.FindGameObjectWithTag("Helpmenu");
 
         start = GameObject.FindGameObjectWithTag("Play");
         help = GameObject.FindGameObjectWithTag("Help");
@@ -57,6 +64,9 @@ public class Mainmenu : MonoBehaviour {
         lv4 = GameObject.FindGameObjectWithTag("Level4");
         lv5 = GameObject.FindGameObjectWithTag("Level5");
         back = GameObject.FindGameObjectWithTag("Back");
+
+        coroutinebackhelpmenu = Backbutton1(helpmenu);
+
         coroutinebackstart = Backbutton(start);
         coroutinebackhelp = Backbutton(help);
         coroutinebackexit = Backbutton(exit);
@@ -69,6 +79,8 @@ public class Mainmenu : MonoBehaviour {
         coroutinebacklv5 = Backbutton(lv5);
         coroutinebackback = Backbutton(back);
         coroutinebackchoose = Startbackchoose();
+
+        coroutinegohelpmenu = Gobutton1(helpmenu);
 
         coroutinegostart = Gobutton(start);
         coroutinegohelp = Gobutton(help);
@@ -188,6 +200,48 @@ public class Mainmenu : MonoBehaviour {
                 StopCoroutine(coroutinebackback);
             }
         }
+
+        if(count.leveling == 6)
+        {
+            if (start.transform.localPosition.x <= -510)
+            {
+                StopCoroutine(coroutinebackstart);
+            }
+            if (exit.transform.localPosition.x <= -510)
+            {
+                StopCoroutine(coroutinebackexit);
+            }
+            if (help.transform.localPosition.x <= -510)
+            {
+                StopCoroutine(coroutinebackhelp);
+            }
+
+            if (helpmenu.transform.localPosition.x <= 0 )
+            {
+                StopCoroutine(coroutinegohelpmenu);
+            }
+        }
+
+        if(count.leveling == 8)
+        {
+            if (start.transform.localPosition.x >= 0)
+            {
+                StopCoroutine(coroutinegostart);
+            }
+            if (help.transform.localPosition.x >= -89)
+            {
+                StopCoroutine(coroutinegohelp);
+            }
+            if (exit.transform.localPosition.x >= -162)
+            {
+                StopCoroutine(coroutinegoexit);
+            }
+
+            if(helpmenu.transform.localPosition.x >= 750)
+            {
+                StopCoroutine(coroutinebackhelpmenu);
+            }
+        }
 	}
 
    
@@ -213,9 +267,14 @@ public class Mainmenu : MonoBehaviour {
 
     public void Buttonhelp()
     {
-
+        coroutinebackstart = Backbutton(start);
+        coroutinebackhelp = Backbutton(help);
+        coroutinebackexit = Backbutton(exit);
+        coroutinebackmenu = Startbackmenu();
+        coroutinegohelpmenu = Gobutton1(helpmenu);
+        StartCoroutine(coroutinegohelpmenu);
         StartCoroutine(coroutinebackmenu);
-        count.leveling = 2;
+        count.leveling = 6;
     }
 
     public void Buttonexit()
@@ -240,6 +299,18 @@ public class Mainmenu : MonoBehaviour {
         StartCoroutine(coroutinebackchoose);
         StartCoroutine(coroutinegomenu);
         count.leveling = 4;
+    }
+
+    public void Buttonhelpback()
+    {
+        coroutinegostart = Gobutton(start);
+        coroutinegohelp = Gobutton(help);
+        coroutinegoexit = Gobutton(exit);
+        coroutinegomenu = Startgomenu();
+        coroutinebackhelpmenu = Backbutton1(helpmenu);
+        StartCoroutine(coroutinegomenu);
+        StartCoroutine(coroutinebackhelpmenu);
+        count.leveling = 8;
     }
 
     public IEnumerator Startbackmenu()
@@ -301,6 +372,17 @@ public class Mainmenu : MonoBehaviour {
         }
     }
 
+    private IEnumerator Backbutton1(GameObject tempgame)
+    {
+        Vector3 temp = tempgame.transform.localPosition;
+        while (true)
+        {
+            temp.x += 20;
+            tempgame.transform.localPosition = temp;
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
     private IEnumerator Gobutton(GameObject tempgame)
     {
         Debug.Log("Gobutton");
@@ -308,6 +390,18 @@ public class Mainmenu : MonoBehaviour {
         while (true)
         {
             temp.x += 20;
+            tempgame.transform.localPosition = temp;
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    private IEnumerator Gobutton1(GameObject tempgame)
+    {
+        Debug.Log("Gobutton");
+        Vector3 temp = tempgame.transform.localPosition;
+        while (true)
+        {
+            temp.x -= 20;
             tempgame.transform.localPosition = temp;
             yield return new WaitForSeconds(0.01f);
         }

@@ -69,7 +69,6 @@
      <Compile Include="Assets\Mymake\C#\Tank\Mine.cs" />
      <Compile Include="Assets\Mymake\C#\Tank\Shell.cs" />
      <Compile Include="Assets\Mymake\C#\Tank\Tank.cs" />
-     <Compile Include="Assets\Mymake\C#\UI\Choose.cs" />
      <Compile Include="Assets\Mymake\C#\UI\Controlhp.cs" />
      <Compile Include="Assets\Mymake\C#\UI\Death.cs" />
      <Compile Include="Assets\Mymake\C#\UI\Maincount.cs" />
