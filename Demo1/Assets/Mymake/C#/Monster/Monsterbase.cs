@@ -144,7 +144,7 @@ public class Monsterbase : Base {
     {
         Vector3 temp = gameObject.transform.position;
         temp.y = 0.5f;
-        int kind = Random.Range(0, 200);
+        int kind = Random.Range(0, 800);
         kind = kind / 10;
         switch (kind)
         {

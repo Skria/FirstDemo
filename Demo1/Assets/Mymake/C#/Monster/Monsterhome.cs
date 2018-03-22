@@ -39,7 +39,6 @@ public class Monsterhome : MonoBehaviour
 	void Update () {
         if(manager.parse == false)
         { 
-            this.transform.LookAt(hero.transform.position);
             if (cproductflag == false )
             {
                 StartCoroutine(coroutineprooduct);

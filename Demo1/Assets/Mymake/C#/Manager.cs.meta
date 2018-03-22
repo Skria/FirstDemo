@@ -1,10 +1,16 @@
 fileFormatVersion: 2
 guid: e36f6ee699e6d4145984993fbf6cf977
-timeCreated: 1521602464
+timeCreated: 1521710784
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
+  - father: {instanceID: 0}
+  - showparse: {fileID: 1446380857197418, guid: cdaabbde2b9a28848b136d82427cb6a2,
+      type: 2}
+  - showwin: {fileID: 1094310523947216, guid: b2eb0e7eaf5f609479b8781beda36d47, type: 2}
+  - showdeath: {fileID: 1164857773089546, guid: 650f118c67308cb4b82944cdb1757b0b,
+      type: 2}
   - tank: {fileID: 1551366288052410, guid: 9b763bef4e8006b458002439ffe6b855, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

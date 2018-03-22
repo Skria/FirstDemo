@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : Base {
+    public GameObject managerobject;
+    public Manager manager;
     public int equipment;
     public bool invincibleflag;
     //用于实现人物的死亡
@@ -14,6 +16,8 @@ public class Hero : Base {
     Animator animator;
     // Use this for initialization
     void Start () {
+        managerobject = GameObject.FindGameObjectWithTag("Manager");
+        manager = managerobject.GetComponent<Manager>();
         coroutine = Herodeath();
         maxhp = 100;
         hp = 100;
@@ -66,6 +70,7 @@ public class Hero : Base {
         Collider collider = this.GetComponent<Collider>();
         collider.enabled = false;
         animator.SetBool("death", true);
+        manager.herodeath = true;
         yield return new WaitForSeconds(2);
         
     }
