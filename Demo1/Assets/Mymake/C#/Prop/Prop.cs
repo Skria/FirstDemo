@@ -13,11 +13,13 @@ public class Prop : MonoBehaviour
     public GameObject slowbullet;
     private IEnumerator coroutineturnshoot;
     private IEnumerator coroutineinvincible;
+    private IEnumerator coroutineshootall;
     //用来隐藏对象；
     Renderer m_ObjectRenderer;
     // Use this for initialization
     void Start()
     {
+        coroutineshootall = Allmove();
         hero = GameObject.FindGameObjectWithTag("Hero");
         heroat = hero.GetComponent<Hero>();
         coroutineturnshoot = Turnshoot();
@@ -63,13 +65,8 @@ public class Prop : MonoBehaviour
                     break;
                 case 3:
                     //360度射击子弹
-                    Quaternion temp = new Quaternion();
-                    for (int i = 0; i < 18; i++)
-                    {
-                        temp.eulerAngles = new Vector3(0, i * 20, 0);
-                        GameObject.Instantiate(slowbullet, this.transform.position, temp);
-                    }
-                    GameObject.Destroy(this.gameObject);
+                    Disappear();
+                    StartCoroutine(coroutineshootall);
                     break;
                 case 4:
                     //旋转射击道具
@@ -108,6 +105,26 @@ public class Prop : MonoBehaviour
         GameObject.Destroy(this.gameObject);
     }
 
+    private IEnumerator Allmove()
+    {
+       for(int i = 0; i<3; i++)
+        {
+            Shootall();
+            yield return new WaitForSeconds(0.5f);
+        }
+        GameObject.Destroy(this.gameObject);
+    }
+
+    public void Shootall()
+    {
+        Quaternion temp = new Quaternion();
+        for (int i = 0; i < 18; i++)
+        {
+            temp.eulerAngles = new Vector3(0, i * 20, 0);
+            GameObject.Instantiate(slowbullet, this.transform.position, temp);
+        }
+    }
+
     private IEnumerator Invinciblehero()
     {
         heroat.invincibleflag = true;
@@ -130,6 +147,7 @@ public class Prop : MonoBehaviour
         tempsee = GameObject.Instantiate(seefx, hero.transform.position, hero.transform.rotation);
         tempsee.transform.parent = hero.transform;
     }
+
 
 
 }

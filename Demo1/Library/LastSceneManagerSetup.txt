@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Mymake/Gamescene/Menu.unity
+- path: Assets/Mymake/Gamescene/Play1.unity
   isLoaded: 1
   isActive: 1

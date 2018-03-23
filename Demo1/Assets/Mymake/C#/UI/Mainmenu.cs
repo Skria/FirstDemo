@@ -131,16 +131,16 @@ public class Mainmenu : MonoBehaviour {
                 StopCoroutine(coroutinebackhelp);
             }
 
-            if(lv1.transform.localPosition.x >= 10)
+            if(lv1.transform.localPosition.x >= -11)
             {
                 StopCoroutine(coroutinegolv1);
                
             }
-            if (lv2.transform.localPosition.x >= -21)
+            if (lv2.transform.localPosition.x >= -65)
             {
                 StopCoroutine(coroutinegolv2);
             }
-            if (lv3.transform.localPosition.x >= -86)
+            if (lv3.transform.localPosition.x >= -120)
             {
                 StopCoroutine(coroutinegolv3);
             }
@@ -148,7 +148,7 @@ public class Mainmenu : MonoBehaviour {
             {
                 StopCoroutine(coroutinegolv4);
             }
-            if (lv5.transform.localPosition.x >= -226)
+            if (lv5.transform.localPosition.x >= -220)
             {
                 StopCoroutine(coroutinegolv5);
             }

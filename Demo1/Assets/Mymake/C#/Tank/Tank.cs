@@ -13,10 +13,13 @@ public class Tank : Monsterbase {
     public GameObject seedeath;
     public bool xmoveflag;
     public bool zmoveflag;
-
+    public IEnumerator coroutineturnshoot;
     public IEnumerator coroutineshootbullet;
     public IEnumerator coroutineshootall;
     public int minedis;
+    //旋转设计子弹
+    public float count1;
+    public bool countflag1;
     //360度子弹
     public float count2;
     //地雷
@@ -33,6 +36,7 @@ public class Tank : Monsterbase {
 
     void Start()
     {
+        countflag1 = false;
         managerobject = GameObject.FindGameObjectWithTag("Manager");
         manager = managerobject.GetComponent<Manager>();
         manager.count = manager.count + 1;
@@ -50,7 +54,9 @@ public class Tank : Monsterbase {
         isdamage = false;
         coroutineproduct = Productprop();
         coroutineshootbullet = Shootbullet();
+        coroutineturnshoot = Turnandshoot();
         StartCoroutine(coroutineshootbullet);
+        count1 = 0;
         count2 = 0;
         count3 = 0;
         xmoveflag = true;
@@ -60,7 +66,7 @@ public class Tank : Monsterbase {
 
     // Update is called once per frame
     void Update () {
-        if (manager.parse == false)
+        if (manager.parse == false && countflag1 == false)
         {
             heroposition = hero.transform.position;
             monsterposition = this.transform.position;
@@ -80,6 +86,10 @@ public class Tank : Monsterbase {
 
     void FixedUpdate()
     {
+        if(countflag1 == false)
+        {
+            count1++;
+        }
         count2++;
     }
 
@@ -130,8 +140,15 @@ public class Tank : Monsterbase {
             Movestrength();
         }
 
+        if(count1 > 500 && hp < 1000)
+        {
+            coroutineturnshoot = Turnandshoot();
+            StartCoroutine(coroutineturnshoot);
+            countflag1 = true;
+            count1 = 0;
+        }
 
-        if(count2 > 500)
+        if(count2 > 800)
         {
             StartCoroutine(coroutineshootall);
             startshoot = true;
@@ -143,8 +160,6 @@ public class Tank : Monsterbase {
             coroutineshootall = IShootall();
         }
        
-      
-
         if(count3 > 20)
         {
             productmine();
@@ -250,5 +265,19 @@ public class Tank : Monsterbase {
             }
             count3 += movespeed;
         }
+    }
+
+    public IEnumerator Turnandshoot()
+    {
+        countflag1 = true;
+        int speed = 17;
+        for (int i = 0; i < 216; i++)
+        {
+            GameObject.Instantiate(tankbullet, new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), this.transform.rotation);
+            this.transform.Rotate(Vector3.up * speed);
+            transform.position += (hero.transform.position - transform.position).normalized * movespeed;
+            yield return new WaitForSeconds(0.01f);
+        }
+        countflag1 = false;
     }
 }

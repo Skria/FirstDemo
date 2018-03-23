@@ -51,27 +51,22 @@ public class Hero : Base {
     {
         if (hp <= 0 && deathflag == false)
         {
-            Debug.Log("我死了");
             deathflag = true;
         }
 
         if (deathflag == true && cdeathflag == false)
         {
-            Debug.Log("我死了");
             cdeathflag = true;
             StartCoroutine(coroutine);
-            Debug.Log("运行之后");
         }
     }
 
     private IEnumerator Herodeath()
     {
-        Debug.Log("我死了");
         Collider collider = this.GetComponent<Collider>();
         collider.enabled = false;
         animator.SetBool("death", true);
-        manager.herodeath = true;
         yield return new WaitForSeconds(2);
-        
+        manager.herodeath = true;
     }
 }
