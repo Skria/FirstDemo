@@ -31,6 +31,9 @@ public class Heroshoot : MonoBehaviour {
     private IEnumerator coroutinereloading;
     int equipment;
 
+    //射击间隔
+    public bool firecold;
+    private IEnumerator coroutinerefirecold;
     Hero hero;
 
     void Start () {
@@ -92,26 +95,28 @@ public class Heroshoot : MonoBehaviour {
 
     private IEnumerator WaitAndShoot()
     {
-        while (true)
+        while (hero.deathflag == false)
         {
             Vector3 shootvec = this.transform.position;
             shootvec.y = shootvec.y + 0.5f;
             int equipment = hero.equipment;
-            if (bulletcount >= 0)
+            if (bulletcount >= 0 && firecold == false && reloading == false)
             {
                 bulletcount--;
             }
-            if (equipment == 1 && bulletcount >= 0)
+            if (equipment == 1 && bulletcount >= 0 && firecold == false && reloading == false)
             {
                 GameObject.Instantiate(bullet1, shootvec, this.transform.rotation);
-                yield return new WaitForSeconds(0.2f);
+                coroutinerefirecold = Ifirecold(0.2f);
+                StartCoroutine(coroutinerefirecold);
             }
-            else if (equipment == 2 && bulletcount >= 0)
+            else if (equipment == 2 && bulletcount >= 0 && firecold == false && reloading == false)
             {
                 GameObject.Instantiate(bullet2, shootvec, this.transform.rotation);
-                yield return new WaitForSeconds(0.1f);
+                coroutinerefirecold = Ifirecold(0.1f);
+                StartCoroutine(coroutinerefirecold);
             }
-            else if (equipment == 3 && bulletcount >= 0)
+            else if (equipment == 3 && bulletcount >= 0 && firecold == false && reloading == false)
             {
                 Quaternion temp1 = this.transform.rotation;
                 Quaternion temp2 = this.transform.rotation;
@@ -120,17 +125,20 @@ public class Heroshoot : MonoBehaviour {
                 GameObject.Instantiate(bullet3, shootvec, this.transform.rotation);
                 GameObject.Instantiate(bullet3, shootvec, temp1);
                 GameObject.Instantiate(bullet3, shootvec, temp2);
-                yield return new WaitForSeconds(0.2f);
+                coroutinerefirecold = Ifirecold(0.2f);
+                StartCoroutine(coroutinerefirecold);
             }
-            else if (equipment == 4 && bulletcount >= 0)
+            else if (equipment == 4 && bulletcount >= 0 && firecold == false && reloading == false)
             {
                 GameObject.Instantiate(bullet4, shootvec, this.transform.rotation);
-                yield return new WaitForSeconds(0.4f);
+                coroutinerefirecold = Ifirecold(0.4f);
+                StartCoroutine(coroutinerefirecold);
             }
-            else if (equipment == 5 && bulletcount >= 0)
+            else if (equipment == 5 && bulletcount >= 0 && firecold == false && reloading == false)
             {
                 GameObject.Instantiate(bullet5, shootvec, this.transform.rotation);
-                yield return new WaitForSeconds(0.4f);
+                coroutinerefirecold = Ifirecold(0.4f);
+                StartCoroutine(coroutinerefirecold);
             }
             if (bulletcount == -1 && reloading == false)
             {
@@ -238,5 +246,12 @@ public class Heroshoot : MonoBehaviour {
                 hero.equipment = 5;
             }
         }
+    }
+
+    private IEnumerator Ifirecold(float time)
+    {
+        firecold = true;
+        yield return new WaitForSeconds(time);
+        firecold = false;
     }
 }

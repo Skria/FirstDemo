@@ -69,6 +69,11 @@ public class Monsterbase : Base {
         if (c.gameObject.layer == 10)
         {
             Bullet bullet = c.GetComponent<Bullet>();
+             Quaternion tempstart = gameObject.transform.rotation;
+        Quaternion tempend = c.transform.rotation;
+        gameObject.transform.rotation = tempend;
+        gameObject.transform.Translate(Vector3.forward * 0.3f);
+        gameObject.transform.rotation = tempstart;
             if (bullet.kind == 1 || bullet.kind == 2)
             {
                 hp -= bullet.Getdamage();

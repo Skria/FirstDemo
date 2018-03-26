@@ -148,7 +148,7 @@ public class Tank : Monsterbase {
             count1 = 0;
         }
 
-        if(count2 > 800)
+        if(count2 > 600)
         {
             StartCoroutine(coroutineshootall);
             startshoot = true;
@@ -174,7 +174,41 @@ public class Tank : Monsterbase {
         }
     }
 
-   
+    public void OnTriggerEnter(Collider c)
+    {
+        if (c.gameObject.layer == 10)
+        {
+            Bullet bullet = c.GetComponent<Bullet>();
+            if (bullet.kind == 1 || bullet.kind == 2)
+            {
+                hp -= bullet.Getdamage();
+                if (hp <= 0)
+                {
+                    deathflag = true;
+                }
+            }
+        }
+        //跟炸弹层碰撞
+        if (c.gameObject.layer == 12)
+        {
+            hp -= 15;
+            if (hp <= 0)
+            {
+                deathflag = true;
+            }
+        }
+
+        if (c.gameObject.layer == 9)
+        {
+            bool invincibleflag = heroat.invincibleflag;
+            if (invincibleflag == false)
+            {
+                heroat.hp = heroat.hp - damage;
+            }
+        }
+
+
+    }
 
     private void productmine()
     {

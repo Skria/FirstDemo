@@ -6,7 +6,19 @@ public class Hero : Base {
     public GameObject managerobject;
     public Manager manager;
     public int equipment;
+
     public bool invincibleflag;
+
+    /*
+    private float invincibletime = 0f;
+    public bool IsInvincible
+    {
+        get { return Time.time - invincibletime < 5f; }
+        set { invincibletime = Time.time; }
+    }
+    */
+
+
     //用于实现人物的死亡
     public  bool deathflag;
     //死亡协程运行标志
